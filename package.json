@@ -1,0 +1,30 @@
+{
+  "name": "devops-lab",
+  "version": "1.0.0",
+  "description": "Learning DevOps end-to-end: from hello world to a GitOps-deployed, monitored app.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bende-KBB/devops-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Bende-KBB/devops-lab/issues"
+  },
+  "homepage": "https://github.com/Bende-KBB/devops-lab#readme",
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2"
+  }
+}

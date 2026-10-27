@@ -1,0 +1,29 @@
+{
+  // Only compile files in src/. Without this, tsc defaults to every .ts
+  // file in the project ("**/*").
+  "include": ["src"],
+  "compilerOptions": {
+    // Where our TypeScript source lives, and where compiled JavaScript goes.
+    "rootDir": "src",
+    "outDir": "dist",
+
+    // Which JavaScript version to output. Node 24 supports ES2024 natively,
+    // so TypeScript doesn't need to rewrite modern syntax.
+    "target": "es2024",
+
+    // Use Node's module rules. Together with "type": "module" in
+    // package.json, this means ES Modules (import/export).
+    "module": "nodenext",
+
+    // Enable all strict type checks. Catches bugs at compile time.
+    "strict": true,
+
+    // Load type definitions for Node's built-in modules (node:http, etc.).
+    // Requires the @types/node package (next step).
+    "types": ["node"],
+
+    // Generate .map files so error stack traces point to .ts lines,
+    // not to the compiled .js.
+    "sourceMap": true
+  }
+}
