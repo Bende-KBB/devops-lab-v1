@@ -144,6 +144,33 @@ On first connect, SSH shows GitHub's host fingerprint. **Before typing `yes`, co
 
 Success: `Hi Bende-KBB! You've successfully authenticated, but GitHub does not provide shell access.` (No shell access is normal.)
 
+### Remember the passphrase with an SSH agent
+
+Without an agent, SSH asks for the passphrase on every `git push`/`git pull`. **Don't remove the passphrase**: it keeps the key file encrypted, so a copied file (malware, stolen laptop, leaked backup) is useless on its own.
+
+Instead, run an **SSH agent**: a background program that holds the *unlocked* key in memory. The file on disk stays encrypted. We use **keychain**, which starts one agent and shares it across all terminal tabs.
+
+```bash
+sudo apt install -y keychain
+echo 'eval "$(keychain --eval --quiet --noask id_ed25519)"' >> ~/.bashrc
+printf 'Host github.com\n  AddKeysToAgent yes\n' >> ~/.ssh/config
+```
+
+What each line does:
+
+1. Installs keychain.
+2. Adds a line to `~/.bashrc` (the script every new shell runs). Each new tab starts the agent, or reuses the running one, and tells the shell where to find it. `--noask` means "don't ask for the passphrase now." Note: `>>` **appends** to a file; a single `>` would overwrite it.
+3. Adds a rule to `~/.ssh/config` (SSH's settings file): "for github.com, once the key is unlocked, hand it to the agent."
+
+Result: opening a terminal asks nothing; the **first** Git command that talks to GitHub asks for the passphrase once; the rest of the WSL session is silent. After WSL shuts down (some time after the last terminal closes, or after a reboot), the next session asks once again.
+
+**Check** (in a new tab):
+
+```bash
+ssh -T git@github.com   # asks for the passphrase
+ssh -T git@github.com   # does not ask
+```
+
 ---
 
 ## Step 6: Node.js via nvm
