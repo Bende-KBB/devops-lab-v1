@@ -16,7 +16,7 @@
   "author": "",
   "license": "UNLICENSED",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Bende-KBB/devops-lab/issues"
   },
