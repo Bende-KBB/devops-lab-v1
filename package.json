@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Bende-KBB/devops-lab#readme",
   "devDependencies": {
+    "@types/node": "24.19.2",
     "typescript": "7.0.2"
   }
 }

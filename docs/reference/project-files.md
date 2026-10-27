@@ -30,7 +30,7 @@ Facts about the files, commands, and settings in this repository. For **why** th
 | `license` | `UNLICENSED` | No license is granted (the repository contains no license file) |
 | `type` | `module` | `.js` files are ES Modules (`import`/`export`) |
 | `scripts` | — | Named commands, run with `npm run <name>` |
-| `devDependencies` | `typescript` | Packages needed only to build or develop |
+| `devDependencies` | `typescript`, `@types/node` | Packages needed only to build or develop |
 
 `main` is intentionally absent: it tells *other* code which file to load when importing a library. This project is an application, not a library.
 
