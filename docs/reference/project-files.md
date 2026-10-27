@@ -13,6 +13,7 @@ Facts about the files, commands, and settings in this repository. For **why** th
 | `package.json` | Yes | Project manifest: name, scripts, dependencies | No (strict JSON) |
 | `package-lock.json` | Yes | Exact version and integrity hash of every installed package. Never edit by hand. | No |
 | `tsconfig.json` | Yes | TypeScript compiler settings | Yes (`//`) |
+| `src/` | Yes | TypeScript source code (`server.ts`) | Yes (`//`) |
 | `node_modules/` | No | Installed packages; recreated by `npm ci` | — |
 | `dist/` | No | Compiled JavaScript; recreated by `tsc` | — |
 
@@ -33,6 +34,16 @@ Facts about the files, commands, and settings in this repository. For **why** th
 | `devDependencies` | `typescript`, `@types/node` | Packages needed only to build or develop |
 
 `main` is intentionally absent: it tells *other* code which file to load when importing a library. This project is an application, not a library.
+
+### npm scripts
+
+| Script | Runs | Effect |
+|---|---|---|
+| `build` | `tsc` | Compiles `src/` to `dist/` |
+| `start` | `node dist/server.js` | Runs the compiled server on port 3000. Run `build` first. |
+| `test` | placeholder | Always fails; tests are not set up yet |
+
+Inside scripts, npm finds tools in `node_modules/.bin/`, so `tsc` is the project's pinned version without `npx`. `npm start` and `npm test` work without `run`; other scripts need `npm run <name>`.
 
 ---
 
