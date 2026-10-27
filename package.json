@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Bende-KBB/devops-lab/issues"
   },
-  "homepage": "https://github.com/Bende-KBB/devops-lab#readme"
+  "homepage": "https://github.com/Bende-KBB/devops-lab#readme",
+  "devDependencies": {
+    "typescript": "7.0.2"
+  }
 }
