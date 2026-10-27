@@ -52,6 +52,7 @@ This file is committed. **Never put registry tokens or other credentials in it.*
 
 | Option | Value | Meaning |
 |---|---|---|
+| `include` | `["src"]` | Only files under `src/` are compiled (the default would be every `.ts` file in the project) |
 | `rootDir` | `src` | TypeScript source location |
 | `outDir` | `dist` | Compiled output location |
 | `target` | `es2024` | JavaScript version to emit; supported natively by Node.js 24 |
